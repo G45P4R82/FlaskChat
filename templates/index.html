@@ -1,24 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat App</title>
+    <title>Modern Chat AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
-<body>
-    <h1>Welcome to the Chat App</h1>
-    <div id="chat-container">
-        <div id="uid-section">
-            Your UID: <span id="user-uid"></span>
-        </div>
-        <div id="notification-banner" class="notification-banner">New Message Sent</div>
-        <div id="messages"></div>
-        <div id="message-input-container">
-            <input type="text" id="message-input" placeholder="Type your message...">
-            <button id="send-button">Send</button>
+<body class="grey darken-4">
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m8 offset-m2">
+                <div class="card grey darken-3 z-depth-4 main-chat-card">
+                    <div class="card-content white-text">
+                        <span class="card-title center-align">
+                            <i class="material-icons left">chat</i> Global Chat
+                        </span>
+                        <div id="uid-section" class="center-align grey-text text-lighten-1">
+                            Seu ID: <span id="user-uid" class="chip">Aguardando...</span>
+                        </div>
+                        
+                        <div id="notification-banner" class="chip blue white-text" style="display:none;">
+                            Novas mensagens abaixo
+                            <i class="close material-icons">arrow_downward</i>
+                        </div>
+
+                        <div id="messages" class="messages-container">
+                            </div>
+                    </div>
+                    
+                    <div class="card-action grey darken-4">
+                        <div class="input-field inline-flex">
+                            <input type="text" id="message-input" class="white-text" placeholder="Escreva sua mensagem...">
+                            <button id="send-button" class="btn-floating btn-large waves-effect waves-light blue pulse">
+                                <i class="material-icons">send</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
     <script src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
